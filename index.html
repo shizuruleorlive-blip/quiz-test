@@ -64,7 +64,7 @@ const stages = [
    threshold: 70, 
    reward: "第一階段解鎖", 
    rewardText: "是真的沒有想到前面這些東西你可以答對這麼多啦：3", 
-   linkText: "唉喲？牛逼",
+   linkText: "唉喲？牛逼，點我領個獎ㄅ",
    linkUrl: "https://drive.google.com/drive/folders/1r8DpUt3JLHH19q9riDcTmoBiNsXw8qjc?usp=drive_link",
    questions: [
      {
@@ -79,35 +79,35 @@ const stages = [
          text: "那這張圖片是想要表示什麼？",
          img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/02_bonk.webp?raw=true" 
        },
-       a: [["此為易燃物", 5], ["舅級木頭", 0], ["真的就是你個槌子", 20], ["何謂真理？", 10]]
+       a: [["此為易燃物", 10], ["舅級木頭", 5], ["真的就是你個槌子", 20], ["何謂真理？", 10]]
      },
       {
        q: {
          text: "所以你知道這張圖表示什麼嗎？",
          img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/03_only-turn.webp?raw=true" 
        },
-       a: [["只能使出迴轉", 20], ["友情破裂中", 5], ["下一張得出藍色的卡", 10], ["不要在路上玩UNO", 0]]
+       a: [["只能使出迴轉", 20], ["友情破裂中", 10], ["下一張得出藍色的卡", 10], ["不要在路上玩UNO", 5]]
      },
      {
        q: {
          text: "不要跟我說你不知道這張圖是什麼喔",
          img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/04_boom.webp?raw=true" 
        },
-       a: [["某種指定技能", 5], ["戰鬥邀請圖示", 5], ["路上不給玩道具賽", 0], ["有人使出了砲彈道具", 20]]
+       a: [["某種指定技能", 10], ["戰鬥邀請圖示", 5], ["路上不給玩道具賽", 0], ["有人使出了砲彈道具", 20]]
      },
      {
        q: {
          text: "先別破防啦說不定答案不是你想得那樣啊",
          img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/05_notGBL.webp?raw=true" 
        },
-       a: [["啊哈就是你想的這樣", 15], ["禁止哥布林", 20], ["洗勒考逆？", 0], ["不准在這裡拉洗", 10]]
+       a: [["啊哈就是你想的這樣", 15], ["禁止哥布林", 15], ["洗勒考逆？", 5], ["不准在這裡拉洗", 10]]
      },
      {
        q: {
          text: "這不用46多解釋了吧？",
          img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/06_py-party.webp?raw=true" 
        },
-       a: [["屁眼停哪？", 5], ["說不定不是你想的這樣呢？", 0], ["所以都是些什麼題目啊？", 0], ["屁眼派對現場", 20]]
+       a: [["屁眼停哪？", 10], ["說不定不是你想的這樣呢？", 0], ["所以都是些什麼題目啊？", 0], ["屁眼派對現場", 20]]
      },
    ]
  },
@@ -117,15 +117,14 @@ const stages = [
    threshold: 70, 
    reward: "第二階段解鎖", 
    rewardText: "其實也不知道為什麼你還在這裡答題，但給你的耐心還有勇氣打call(｢･ω･)｢", 
-   // 🔗 第二階段的超連結
-   linkText: "喔wow你可以走到這喔？",
+   linkText: "喔wow那來領獎ㄅ",
    linkUrl: "https://drive.google.com/drive/folders/1ZfEKITrS5iyk34KOgV_jTjcpTPOglRb-?usp=drive_link",
    questions: [
      {q: "喝車不開酒，下一句？", a: [["開酒不喝車", 20], ["開瓶器在這", 0], ["我又沒有車", 0], ["洗勒呱蝦餃", 5]]},
      {q: "精神不佳時該怎麼做？", a: [["工作到暴斃", 0], ["迅速打開46直播", 20], ["掐一下乃投", 20], ["年輕真好倒頭就睡", 10]]},
      {q: "選擇你覺得正確的選項", a: [["左欺敵右欺敵", 0], ["46員警是氣質美女", 20], ["請零兵以火力掩護我", 0], ["這個警察當過兵", 0]]},
      {q: "高速行駛應注意？", a: [["跟著大家在聊天室一起飆車", 0], ["你以為是在路上行駛嗎？", 0], ["等著被46 Ban", 5], ["提醒46可能會被ban台", 20]]},
-     {q: "你剛剛有認真看生日影片嗎？", a: [["我馬上去補！", 0], ["什麼影片？", 0], ["那是肯定的", 20], ["老師在講我沒在聽", 0]]},
+     {q: "你剛剛有認真看生日影片嗎？", a: [["我馬上去補！", 10], ["什麼影片？", 0], ["那是肯定的", 20], ["老師在講我沒在聽", 0]]},
    ]
  },
  {
@@ -134,8 +133,7 @@ const stages = [
    threshold: 70, 
    reward: "你全部通過了，算你厲害(*´꒳`*)b", 
    rewardText: "恭喜你全部通關啦～怎麼樣，腦子有癢癢的嗎？那就對了ψ(｀∇´)ψ", 
-   // 🔗 第三階段的超連結
-   linkText: "算你厲害",
+   linkText: "算你厲害，領一下獎ㄅ",
    linkUrl: "https://drive.google.com/drive/folders/1wrpMgZ9TJ_cWlh8f4sGdQortfijUyUrW?usp=drive_link",
    questions: [
      {q: "46的長官是不是", a: [["嗨長官！", 0], ["長官怎麼了？", 0], ["他甚至沒說話吧？", 10], ["有那大病", 20]]},
