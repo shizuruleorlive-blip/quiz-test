@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>46員警的不負責任測驗 ✦</title>
+<style>
+:root{--ink:#45365e;--pink:#ff8eb4;--peach:#ffd6b8;--lav:#dcd2ff;--mint:#bff1df;--yellow:#ffe99a;--paper:#fffaf5}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:var(--ink);background:radial-gradient(circle at 12% 15%,#fff 0 4%,transparent 4.2%),linear-gradient(135deg,#fff0f5,#f0edff 55%,#e5fff5);padding:24px}
+.wrap{max-width:850px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.logo{font-weight:900;letter-spacing:.04em}.pill{background:#fff9;border:1px solid #fff;padding:8px 13px;border-radius:999px;font-size:.86rem}
+.hero,.panel{background:#ffffffd9;border:2px solid #fff;border-radius:28px;box-shadow:0 12px 35px #65528a18;padding:clamp(20px,4vw,36px)}
+.hero{text-align:center;position:relative;overflow:hidden}.spark{font-size:2rem}.hero h1{font-size:clamp(2rem,6vw,3.3rem);line-height:1.12;margin:12px 0}.hero p{max-width:560px;margin:0 auto 22px;line-height:1.8;color:#766b8d}
+.btn{border:0;border-radius:16px;padding:13px 20px;font-weight:800;font-size:1rem;cursor:pointer;color:#fff;background:linear-gradient(100deg,#ff82ad,#a18bff);box-shadow:0 7px 0 #d8c3f4;transition:transform .15s}.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(2px);box-shadow:0 3px 0 #d8c3f4}.btn.secondary{background:#fff;color:var(--ink);border:2px solid #e8defe;box-shadow:none}
+.hidden{display:none!important}.progress-wrap{height:10px;border-radius:99px;background:#f0eafa;overflow:hidden;margin:12px 0 22px}.progress{height:100%;width:0;background:linear-gradient(90deg,#ff91b7,#9f8cff);transition:width .3s}
+.stage-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.stage-label{font-size:.9rem;font-weight:800;color:#a17ab9}.question{font-size:clamp(1.25rem,3vw,1.7rem);margin:8px 0 18px}
+.question-img{max-width:100%;max-height:280px;border-radius:16px;margin:10px 0 16px;object-fit:contain;box-shadow:0 4px 15px rgba(0,0,0,0.08);display:block}
+.answers{display:grid;gap:12px}.answer{width:100%;text-align:left;padding:15px 17px;border:2px solid #eee5fb;border-radius:17px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;transition:.15s}.answer:hover{border-color:#c5b4ff;transform:translateY(-1px)}.answer.selected{background:#f3efff;border-color:#a18bff;box-shadow:0 0 0 3px #a18bff20}.answer .letter{display:inline-grid;place-items:center;width:30px;height:30px;margin-right:10px;border-radius:10px;background:#ffe5ef;font-weight:900}
+.actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px}.hint{font-size:.9rem;color:#8a7e9f;line-height:1.5}.reward{text-align:center;padding:18px 0}.reward-icon{font-size:4rem;animation:bob 1.8s ease-in-out infinite}.reward h2{font-size:2rem;margin:8px}.reward-card{max-width:480px;margin:20px auto;background:linear-gradient(135deg,#fff3bf,#ffe1ee);border:2px dashed #ff9ebd;border-radius:22px;padding:24px}.tag{display:inline-block;padding:6px 12px;border-radius:999px;background:#e8fff4;font-weight:800;font-size:.85rem}.footer{text-align:center;color:#9589a9;font-size:.8rem;margin:18px}
+@keyframes bob{50%{transform:translateY(-8px) rotate(5deg)}}@media(max-width:560px){body{padding:14px}.top{align-items:flex-start}.actions{align-items:stretch;flex-direction:column-reverse}.actions .btn{width:100%}.hint{text-align:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="logo">✦ 46員警的不負責任測驗</div><div class="pill"> 這鬼題目shi勒考逆？</div></div>
+  <section id="start" class="hero">
+    <img src="https://github.com/shizuruleorlive-blip/quizpics/blob/main/LOGO.webp?raw=true" width="300px">
+    <h1>AE46的行駛守則<br>安全Q&A</h1> 
+    <p>完成 3 個階段的小小挑戰，看看你對安全意識的了解程度吧！每一關都要達到通關分數，不及格就給我重考ㄅ哇哈哈 σ`∀´)σ</p>
+    <p>友情提醒，裡面的題目跟真實上路狀況完全無關，請勿當真，但是進去開始答題可能會造成一些精神上的磨耗，祝你好運嘿嘿嘿嘿嘿～</p>
+    <button class="btn" id="begin">我有不好的預感 →</button>
+  </section>
+
+  <section id="quiz" class="panel hidden">
+    <div class="stage-head"><div><div class="stage-label" id="stageLabel">STAGE 01</div><h2 id="stageTitle" style="margin:4px 0">暖身小測驗</h2></div><div class="pill" id="scorePill">本關得分：0</div></div>
+    <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+    <div class="tag" id="topic">✨ 第一印象</div>
+    <h3 class="question" id="question"></h3>
+    <div id="questionMedia"></div>
+    <div class="answers" id="answers"></div>
+    <div class="actions"><div class="hint" id="hint">選擇最像你的答案吧！</div><button class="btn" id="next" disabled>確認答案 →</button></div>
+  </section>
+
+  <section id="result" class="panel hidden">
+    <div class="reward"><div class="reward-icon" id="resultIcon">🎁</div><div class="stage-label" id="resultEyebrow">STAGE CLEAR</div><h2 id="resultTitle">成功通關！</h2><p id="resultText" style="line-height:1.8"></p>
+      <div class="reward-card">
+        <div style="font-size:.9rem;font-weight:800">🎀 本關解鎖獎勵</div>
+        <h3 id="rewardName" style="font-size:1.5rem;margin:8px 0"></h3>
+        <p id="rewardText" style="line-height:1.7;margin:0"></p>
+        <!-- 🔗 新增：用來動態放置每一階段超連結的容器 -->
+        <div id="rewardLinkWrap" style="margin-top:12px;"></div>
+      </div>
+      <button class="btn" id="continue">前往下一關 →</button>
+      <button class="btn secondary hidden" id="restart" style="margin-left:8px">好怪喔再看一眼 ↻</button>
+    </div>
+  </section>
+  <div class="footer">小提醒：此測驗與實際上路情況完全無關，本台不負任何責任嘻嘻：3</div>
+  <div class="footer">答案與進度目前只存在這次遊玩中。</div>
+</div>
+<script>
+const stages = [
+ {
+   title: "暖身小測驗", 
+   topic: "❀這邊是一些圖片題❀", 
+   threshold: 70, 
+   reward: "第一階段解鎖", 
+   rewardText: "是真的沒有想到前面這些東西你可以答對這麼多啦：3", 
+   linkText: "唉喲？牛逼",
+   linkUrl: "https://drive.google.com/drive/folders/1r8DpUt3JLHH19q9riDcTmoBiNsXw8qjc?usp=drive_link",
+   questions: [
+     {
+       q: {
+         text: "此圖片是想要表示？",
+         img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/01_warn-underwear.webp?raw=true" 
+       },
+       a: [["注意這是黃色", 5], ["注意內衣", 20], ["注意你個槌子", 0], ["注意XL大尺碼眼罩", 5]]
+     },
+     {
+       q: {
+         text: "那這張圖片是想要表示什麼？",
+         img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/02_bonk.webp?raw=true" 
+       },
+       a: [["此為易燃物", 5], ["舅級木頭", 0], ["真的就是你個槌子", 20], ["何謂真理？", 10]]
+     },
+      {
+       q: {
+         text: "所以你知道這張圖表示什麼嗎？",
+         img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/03_only-turn.webp?raw=true" 
+       },
+       a: [["只能使出迴轉", 20], ["友情破裂中", 5], ["下一張得出藍色的卡", 10], ["不要在路上玩UNO", 0]]
+     },
+     {
+       q: {
+         text: "不要跟我說你不知道這張圖是什麼喔",
+         img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/04_boom.webp?raw=true" 
+       },
+       a: [["某種指定技能", 5], ["戰鬥邀請圖示", 5], ["路上不給玩道具賽", 0], ["有人使出了砲彈道具", 20]]
+     },
+     {
+       q: {
+         text: "先別破防啦說不定答案不是你想得那樣啊",
+         img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/05_notGBL.webp?raw=true" 
+       },
+       a: [["啊哈就是你想的這樣", 15], ["禁止哥布林", 20], ["洗勒考逆？", 0], ["不准在這裡拉洗", 10]]
+     },
+     {
+       q: {
+         text: "這不用46多解釋了吧？",
+         img: "https://github.com/shizuruleorlive-blip/quizpics/blob/main/06_py-party.webp?raw=true" 
+       },
+       a: [["屁眼停哪？", 5], ["說不定不是你想的這樣呢？", 0], ["所以都是些什麼題目啊？", 0], ["屁眼派對現場", 20]]
+     },
+   ]
+ },
+ {
+   title: "小腦萎縮題", 
+   topic: "❀這邊是一些選擇題❀", 
+   threshold: 70, 
+   reward: "第二階段解鎖", 
+   rewardText: "其實也不知道為什麼你還在這裡答題，但給你的耐心還有勇氣打call(｢･ω･)｢", 
+   // 🔗 第二階段的超連結
+   linkText: "喔wow你可以走到這喔？",
+   linkUrl: "https://drive.google.com/drive/folders/1ZfEKITrS5iyk34KOgV_jTjcpTPOglRb-?usp=drive_link",
+   questions: [
+     {q: "喝車不開酒，下一句？", a: [["開酒不喝車", 20], ["開瓶器在這", 0], ["我又沒有車", 0], ["洗勒呱蝦餃", 5]]},
+     {q: "精神不佳時該怎麼做？", a: [["工作到暴斃", 0], ["迅速打開46直播", 20], ["掐一下乃投", 20], ["年輕真好倒頭就睡", 10]]},
+     {q: "選擇你覺得正確的選項", a: [["左欺敵右欺敵", 0], ["46員警是氣質美女", 20], ["請零兵以火力掩護我", 0], ["這個警察當過兵", 0]]},
+     {q: "高速行駛應注意？", a: [["跟著大家在聊天室一起飆車", 0], ["你以為是在路上行駛嗎？", 0], ["等著被46 Ban", 5], ["提醒46可能會被ban台", 20]]},
+     {q: "你剛剛有認真看生日影片嗎？", a: [["我馬上去補！", 0], ["什麼影片？", 0], ["那是肯定的", 20], ["老師在講我沒在聽", 0]]},
+   ]
+ },
+ {
+   title: "認真看影片", 
+   topic: "❀你剛剛說有看影片❀", 
+   threshold: 70, 
+   reward: "你全部通過了，算你厲害(*´꒳`*)b", 
+   rewardText: "恭喜你全部通關啦～怎麼樣，腦子有癢癢的嗎？那就對了ψ(｀∇´)ψ", 
+   // 🔗 第三階段的超連結
+   linkText: "算你厲害",
+   linkUrl: "https://drive.google.com/drive/folders/1wrpMgZ9TJ_cWlh8f4sGdQortfijUyUrW?usp=drive_link",
+   questions: [
+     {q: "46的長官是不是", a: [["嗨長官！", 0], ["長官怎麼了？", 0], ["他甚至沒說話吧？", 10], ["有那大病", 20]]},
+     {q: "為什麼說長官有毛病？", a: [["他說飯糰要微波？", 20], ["冰拿鐵不加奶？", 20], ["點冰咖啡還微波個毛線？", 20], ["對槽點就這麼多", 0]]},
+     {q: "46員警她...", a: [["偷偷稱了遮陽傘", 0], ["其實很想要睜一隻眼閉一隻眼", 10], ["其實沒有想上班", 20], ["最喜歡巡邏了", 0]]},
+     {q: "哪一句46員警沒說過？", a: [["屁眼派對！！", 20], ["教你一個小小的解決辦法", 0], ["這嘴是不是開過光啊", 0], ["世界和平最重要啊", 0]]},
+     {q: "46推薦的餐點沒有哪個？", a: [["印度咖哩", 0], ["可麗餅", 20], ["麻辣鍋", 0], ["粉漿蛋餅", 0]]}
+   ]
+ }
+];
+
+let stageIndex=0, questionIndex=0, selected=null, score=0, answersByStage=[];
+const $=id=>document.getElementById(id);
+function show(id){["start","quiz","result"].forEach(x=>$(x).classList.toggle("hidden",x!==id))}
+$("begin").onclick=()=>{stageIndex=0;answersByStage=[];startStage();};
+function startStage(){questionIndex=0;score=0;selected=null;show("quiz");renderQuestion();}
+
+function renderQuestion(){
+ const s=stages[stageIndex], q=s.questions[questionIndex];
+ $("stageLabel").textContent=`STAGE ${String(stageIndex+1).padStart(2,"0")} / 0${stages.length}`;
+ $("stageTitle").textContent=s.title;
+ $("topic").textContent=s.topic;
+ 
+ const questionMedia = $("questionMedia");
+ questionMedia.innerHTML = "";
+ 
+ if (typeof q.q === "object" && q.q !== null) {
+   $("question").textContent = `${questionIndex+1}.${q.q.text}`;
+   if (q.q.img) {
+     const imgElem = document.createElement("img");
+     imgElem.src = q.q.img;
+     imgElem.className = "question-img";
+     questionMedia.appendChild(imgElem);
+   }
+ } else {
+   $("question").textContent = `${questionIndex+1}.${q.q}`;
+ }
+
+ $("scorePill").textContent=`本關得分：${score}`;
+ $("progress").style.width=`${questionIndex/s.questions.length*100}%`;
+ $("hint").textContent=`本關通關門檻：${s.threshold} 分｜答對/選擇累積分數`;
+ $("next").disabled=true;
+ $("next").textContent=questionIndex===s.questions.length-1?"提交本關 →":"啥？蛤？ →";
+ selected=null;
+ 
+ $("answers").innerHTML="";
+ q.a.forEach((a,i)=>{
+   const b=document.createElement("button");
+   b.className="answer";
+   b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span>${a[0]}`;
+   b.onclick=()=>{
+     document.querySelectorAll(".answer").forEach(x=>x.classList.remove("selected"));
+     b.classList.add("selected");
+     selected=i;
+     $("next").disabled=false;
+   };
+   $("answers").appendChild(b);
+ });
+}
+
+$("next").onclick=()=>{
+ if(selected===null)return;
+ const q=stages[stageIndex].questions[questionIndex];
+ score+=q.a[selected][1];
+ if(!answersByStage[stageIndex])answersByStage[stageIndex]=[];
+ answersByStage[stageIndex].push(selected);
+ 
+ if(questionIndex<stages[stageIndex].questions.length-1){
+   questionIndex++;
+   renderQuestion();
+   $("scorePill").textContent=`本關得分：${score}`;
+   return;
+ }
+ $("progress").style.width="100%";
+ showResult();
+};
+
+function showResult(){
+ const s=stages[stageIndex], passed=score>=s.threshold;
+ show("result");
+ $("resultIcon").textContent=passed?(stageIndex===stages.length-1?"🌸":"🤪"):"🥬";
+ $("resultEyebrow").textContent=passed?"STAGE CLEAR":"TRY AGAIN";
+ $("resultTitle").textContent=passed?`第 ${stageIndex+1} 階段通過！`:"哈哈笑你，好菜喔 σ`∀´)σ";
+ $("resultText").textContent=`本關得分：${score} 分（通關門檻 ${s.threshold} 分）。`+(passed?"這種東西都可以答到這麼高分喔？這麼變態的嗎？":"分數不夠！乖乖給我從第一關重頭來過吧哇哈哈(*´з｀*)");
+ $("rewardName").textContent=passed?s.reward:"尚未解鎖";
+ $("rewardText").textContent=passed?s.rewardText:"想要通關嗎？哪有可能你想得這麼容易啊：3";
+ 
+ // 🔗 動態渲染每個階段對應的超連結
+ const linkWrap = $("rewardLinkWrap");
+ if (passed && s.linkUrl && s.linkText) {
+   linkWrap.innerHTML = `<a href="${s.linkUrl}" target="_blank" style="color: #ff5295; font-weight: bold; text-decoration: underline; background: #fff; padding: 6px 12px; border-radius: 8px; display: inline-block; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">${s.linkText}</a>`;
+ } else {
+   linkWrap.innerHTML = "";
+ }
+ 
+ $("continue").textContent = passed ? (stageIndex===stages.length-1?"這到底都是些啥？":"這些白癡題到底有多少？ →") : "呵呵重來吧你 ↻";
+ $("restart").classList.toggle("hidden",!(passed&&stageIndex===stages.length-1));
+}
+
+$("continue").onclick=()=>{
+ const passed=score>=stages[stageIndex].threshold;
+ 
+ if(!passed){
+   stageIndex = 0;
+   startStage();
+   return;
+ }
+ 
+ if(stageIndex<stages.length-1){
+   stageIndex++;
+   startStage();
+   return;
+ }
+ 
+ $("resultIcon").textContent="💩";
+ $("resultEyebrow").textContent="ALL STAGES COMPLETE";
+ $("resultTitle").textContent="放心啦真的沒了啦";
+ $("resultText").textContent="三個階段全部完成，快去吃點東西補補腦子ㄅσ(´∀｀*)";
+ $("rewardName").textContent="對，就是只有最高榮譽：算你厲害";
+ $("rewardText").textContent="雖然全部通關不能代表什麼，可能頂多代表你很了解46，那怎麼樣？就代表你好變態的哇ᕕ ( ᐛ ) ᕗ";
+ 
+ // 如果最後一關也有超連結，通關後也會顯示在卡片內
+ const linkWrap = $("rewardLinkWrap");
+ const s = stages[stageIndex];
+ if (s.linkUrl && s.linkText) {
+   linkWrap.innerHTML = `<a href="${s.linkUrl}" target="_blank" style="color: #ff5295; font-weight: bold; text-decoration: underline; background: #fff; padding: 6px 12px; border-radius: 8px; display: inline-block; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">${s.linkText}</a>`;
+ }
+
+ $("continue").classList.add("hidden");
+ $("restart").classList.remove("hidden");
+};
+
+$("restart").onclick=()=>{
+ stageIndex = 0; 
+ $("continue").classList.remove("hidden");
+ startStage();
+};
+</script>
+</body>
+</html>
