@@ -221,7 +221,6 @@ function showResult(){
  $("rewardName").textContent=passed?s.reward:"尚未解鎖";
  $("rewardText").textContent=passed?s.rewardText:"想要通關嗎？哪有可能你想得這麼容易啊：3";
  
- // 🔗 動態渲染每個階段對應的超連結
  const linkWrap = $("rewardLinkWrap");
  if (passed && s.linkUrl && s.linkText) {
    linkWrap.innerHTML = `<a href="${s.linkUrl}" target="_blank" style="color: #ff5295; font-weight: bold; text-decoration: underline; background: #fff; padding: 6px 12px; border-radius: 8px; display: inline-block; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">${s.linkText}</a>`;
@@ -255,7 +254,6 @@ $("continue").onclick=()=>{
  $("rewardName").textContent="對，就是只有最高榮譽：算你厲害";
  $("rewardText").textContent="雖然全部通關不能代表什麼，可能頂多代表你很了解46，那怎麼樣？就代表你好變態的哇ᕕ ( ᐛ ) ᕗ";
  
- // 如果最後一關也有超連結，通關後也會顯示在卡片內
  const linkWrap = $("rewardLinkWrap");
  const s = stages[stageIndex];
  if (s.linkUrl && s.linkText) {
